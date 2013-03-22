@@ -1,0 +1,22 @@
+﻿<Window x:Class="TestCaseAutomationAssigner.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:testCaseAutomationAssigner="clr-namespace:TestCaseAutomationAssigner" mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525" d:DataContext="{d:DesignInstance testCaseAutomationAssigner:MainWindowViewModel}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Test Assembly" Margin="3" />
+        <TextBox IsReadOnly="True" Margin="3" Grid.Column="1" Text="{Binding TestAssembly}" />
+        <Button Content="Browse" Grid.Column="2" Margin="3" Command="{Binding BrowseCommand}" />
+    </Grid>
+</Window>
