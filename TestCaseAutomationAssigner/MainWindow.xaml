@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:testCaseAutomationAssigner="clr-namespace:TestCaseAutomationAssigner" mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" d:DataContext="{d:DesignInstance testCaseAutomationAssigner:MainWindowViewModel}">
+        Title="Test Case Automation Assigner" Height="250" Width="825" d:DataContext="{d:DesignInstance testCaseAutomationAssigner:MainWindowViewModel}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
@@ -13,10 +13,51 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <TextBlock Text="Test Assembly" Margin="3" />
         <TextBox IsReadOnly="True" Margin="3" Grid.Column="1" Text="{Binding TestAssembly}" />
         <Button Content="Browse" Grid.Column="2" Margin="3" Command="{Binding BrowseCommand}" />
+
+        <TextBlock Text="Test Method" Margin="3" Grid.Row="1" />
+        <TextBox IsReadOnly="True" Margin="3" Grid.Row="1" Grid.Column="1" Text="{Binding TestMethod}" />
+        <Button Content="Select" Grid.Row="1" Grid.Column="2" Margin="3" Command="{Binding BrowseTestsCommand}" />
+
+        <TextBlock Text="Automation Type" Margin="3" Grid.Row="2" />
+        <ComboBox IsEditable="True" Margin="3" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding AutomationType, UpdateSourceTrigger=PropertyChanged}">
+            <ComboBoxItem>Unit Test</ComboBoxItem>
+            <ComboBoxItem>UI Test</ComboBoxItem>
+            <ComboBoxItem>Integration Test</ComboBoxItem>
+        </ComboBox>
+
+        <GroupBox Header="TFS Info" Grid.Row="3" Grid.ColumnSpan="3">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="TFS Server (i.e http://server:8080/tfs/Collection):" Margin="3"/>
+                <TextBox Margin="3" Grid.Column="1" Text="{Binding TfsServer, UpdateSourceTrigger=PropertyChanged}" />
+
+                <TextBlock Text="Team Project:" Margin="3" Grid.Row="1"/>
+                <TextBox Margin="3" Grid.Column="1" Grid.Row="1" Text="{Binding TeamProject, UpdateSourceTrigger=PropertyChanged}" />
+
+                <TextBlock Text="Test Case #: " Grid.Row="2" Margin="3"/>
+                <TextBox Margin="3" Grid.Column="1" Grid.Row="2" Text="{Binding TestCaseNumber, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+        </GroupBox>
+
+        <Button Grid.Row="4" Grid.ColumnSpan="3" Content="Assign!" HorizontalAlignment="Center" Command="{Binding AssignTestCaseCommand}" />
     </Grid>
 </Window>
