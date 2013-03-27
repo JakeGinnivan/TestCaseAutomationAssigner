@@ -20,7 +20,7 @@
     <PublishUrl Condition="$(PublishUrl) == '' Or $(PublishUrl) == '*Undefined*'">publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateEnabled Condition="$(UpdateEnabled) == '' Or $(UpdateEnabled) == '*Undefined*'">false</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
