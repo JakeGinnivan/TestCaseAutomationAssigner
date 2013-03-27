@@ -4,10 +4,10 @@ Test Case Automation Assigner
 Allows you to assign non-mstest tests to Test Cases in TFS
 
 Simply select a test assembly and then browse for the test method, specify your TFS Server, Project and the Test Case #
-![README](README_images\README.png)
+![README](README_images/README.png)
 
 Easily search through all your tests to find the one you want
-![README1](README_images\README1.png)
+![README1](README_images/README1.png)
 
 Then press **Assign!**
 
