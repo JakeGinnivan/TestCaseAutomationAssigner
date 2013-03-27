@@ -37,9 +37,10 @@ namespace TestCaseAutomationAssigner
                 var testCase = await Task.Run(() => GetTestCase());
                 await Task.Run(() => AssociateAutomation(testCase, TestMethod, AutomationType, Path.GetFileName(TestAssembly)));
 
+                var testCaseNumber = TestCaseNumber;
                 TestMethod = null;
                 TestCaseNumber = null;
-                MessageBox.Show(TestMethod + " assigned to test case #" + TestCaseNumber, "Done");
+                MessageBox.Show(TestMethod + " assigned to test case #" + testCaseNumber, "Done");
             }
             catch (Exception ex)
             {
